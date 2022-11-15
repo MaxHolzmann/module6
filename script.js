@@ -12,6 +12,7 @@ let currentHumidEl = document.getElementById('current-humid')
 let searchHistory = document.getElementById('history');
 
 let fiveDayEl = document.getElementById('five-day')
+let fiveDayTitle = document.getElementById('five-day-title');
 
 let cityName;
 let cityNameInfo;
@@ -60,7 +61,6 @@ const getWeatherData = (lat, long) => {
     fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + long + '&units=imperial&appid=664aa0ecdb360272ae3da2581583e2c7')
     .then((response) => response.json())
     .then((data) => {
-        console.log(data)
         displayCurrentWeather(data.name, data.main.temp, data.wind.speed, data.main.humidity);
     });
 }
@@ -70,7 +70,6 @@ const getFiveDayData = (lat, long) => {
     fetch('https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + long + '&units=imperial&appid=664aa0ecdb360272ae3da2581583e2c7')
     .then((response) => response.json())
     .then((data) => {
-        console.log(data.list)
         for(let i = 1; i < data.list.length; i+= 8) {
             displayFiveDayData(
                 data.list[i].dt_txt,
@@ -94,7 +93,7 @@ const displayFiveDayData = (date, temp, wind, humid, icon) => {
     tempLi.textContent = temp + "° F";
 
     let windLi = document.createElement('li');
-    windLi.textContent = wind + " mph";
+    windLi.textContent = wind + " mph winds";
 
     let humidLi = document.createElement('li');
     humidLi.textContent = humid + "% Humidity";
@@ -107,6 +106,7 @@ const displayFiveDayData = (date, temp, wind, humid, icon) => {
     newDay.append(humidLi);
 
     fiveDayEl.append(newDay);
+
 
 }
 
@@ -126,8 +126,9 @@ const fixDate = (date) => {
 const displayCurrentWeather = (name, temp, wind, humidity, date) => {
     currentCityEl.textContent = name;
     currentTempEl.textContent = temp + "° F";
-    currentWindEl.textContent = wind + " mph";
-    currentHumidEl.textContent = humidity + "%";
+    currentWindEl.textContent = wind + " mph winds";
+    currentHumidEl.textContent = humidity + "% Humidity";
+    fiveDayTitle.textContent = "Five Day Weather Report";
 
     //if statement to check for local storage
     for(let i = 0; i < localStorage.length; i++) {
@@ -145,7 +146,7 @@ const createNewButton = (name) => {
     let newSearchHistory = document.createElement('button');
     newSearchHistory.textContent = name;
     newSearchHistory.id = 'search-history-btn'
-    searchHistory.append(newSearchHistory);
+    searchHistory.appendChild(newSearchHistory);
 }
 
 const displayLocalStorage = () => {

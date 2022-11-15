@@ -9,35 +9,43 @@
     <script defer src="script.js"></script>
 </head>
 <body>
+
     <header>
         <h1 class="site-title">Weather Dashboard</h1>
     </header>
 
+    <h2 class="site-subtitle">Enter a location for accurate weather reports!</h2>
+        
+
     <main class="main-container">
 
+    <section class="container">
         <section id="search">
             <form>
-                <input id="search-value"></input>
+                <input placeholder="Enter a location"id="search-value"></input>
                 <button id="search-btn">Search</button>
             </form>            
         </section>
 
         <section id="history">
-            <button id>Search</button>
-            <button id>Search</button>
         </section>
+    </section>
 
+    
+    <section id="container-2" class="container-2">
         <section id="weather-display">
             <h1 id="current-city"></h1>
             <h2 id="current-date"></h2>
             <p id="current-temp"></p>
             <p id="current-wind"></p>
             <p id="current-humid"></p>
-        </section>
+            <p id="five-day-title" class="five-day-title"></p>
+        </section> 
 
         <section id="five-day">
-
+            
         </section>
+    </section>
 
 
     </main>
