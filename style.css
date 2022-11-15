@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+
+}
+
+* {
+   font-family: "Poppins";
+}
+
+.site-title {
+}
+
+input {
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+button {
+    background-color: lightblue;
+    border-radius: 30px;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+}
+
+button:hover {
+    background-color: white;
+    border: 2px solid lightblue;
+    color: lightblue;
+}
+
+.five-day-card {
+    border-radius: 20px;
+    border: 2px solid black;
+}
+
+.five-day-card li {
+    list-style: none;
+}
