@@ -38,14 +38,14 @@ const fetchCityName = (city) => {
         if(!city) {
             city = searchValue.value;
         }
-        fetch('http://api.openweathermap.org/geo/1.0/direct?q=' + city +'&units=imperial&limit=5&appid=664aa0ecdb360272ae3da2581583e2c7')
+        fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + city +'&units=imperial&limit=5&appid=664aa0ecdb360272ae3da2581583e2c7')
         .then((response) => response.json())
         .then((data) => {
             getWeatherData(getCityLat(data), getCityLong(data));
             getFiveDayData(getCityLat(data), getCityLong(data));
         })
         .catch((err) => {
-            console.log('Error, idiot')
+            console.log('Error')
         })
 }
 
